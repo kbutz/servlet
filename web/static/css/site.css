@@ -1,0 +1,6 @@
+.border {
+    border-style: solid;
+    border-width: 1px;
+    width: 25%;
+    padding: 25px;
+}
