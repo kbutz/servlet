@@ -12,5 +12,6 @@
   </head>
   <body>
     <h2>Servlet working.</h2>
+   Some more new things.
   </body>
 </html>
