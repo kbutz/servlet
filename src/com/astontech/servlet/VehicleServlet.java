@@ -77,11 +77,9 @@ public class VehicleServlet extends HttpServlet {
         // checks if updatedVehicleId has been populated, then replaces the vehicleList attribute
         // with the updated vehicle without added to db.
         if (request.getParameter("updatedVehicleId") != null){
-            for (Vehicle v : vehicleList){
-                if (v.getVehicleId() == vehicle.getVehicleId()){
-                    vehicleList.set(vehicleList.indexOf(v), vehicle);
-                }
-            }
+            vehicleList.stream().filter(v -> v.getVehicleId() == vehicle.getVehicleId()).forEach(v -> {
+                vehicleList.set(vehicleList.indexOf(v), vehicle);
+            });
         }
         request.setAttribute("loadSuccessful", "Found " + vehicleList.size() + " vehicle records.  ");
         request.setAttribute("vehicleList", vehicleList);
